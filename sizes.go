@@ -22,18 +22,19 @@ var _ SizesService = &SizesServiceOp{}
 
 // Size represents a DigitalOcean Size
 type Size struct {
-	Slug         string     `json:"slug,omitempty"`
-	Memory       int        `json:"memory,omitempty"`
-	Vcpus        int        `json:"vcpus,omitempty"`
-	Disk         int        `json:"disk,omitempty"`
-	PriceMonthly float64    `json:"price_monthly,omitempty"`
-	PriceHourly  float64    `json:"price_hourly,omitempty"`
-	Regions      []string   `json:"regions,omitempty"`
-	Available    bool       `json:"available,omitempty"`
-	Transfer     float64    `json:"transfer,omitempty"`
-	Description  string     `json:"description,omitempty"`
-	GPUInfo      *GPUInfo   `json:"gpu_info,omitempty"`
-	DiskInfo     []DiskInfo `json:"disk_info,omitempty"`
+	Slug                 string     `json:"slug,omitempty"`
+	Memory               int        `json:"memory,omitempty"`
+	Vcpus                int        `json:"vcpus,omitempty"`
+	Disk                 int        `json:"disk,omitempty"`
+	PriceMonthly         float64    `json:"price_monthly,omitempty"`
+	PriceHourly          float64    `json:"price_hourly,omitempty"`
+	Regions              []string   `json:"regions,omitempty"`
+	Available            bool       `json:"available,omitempty"`
+	Transfer             float64    `json:"transfer,omitempty"`
+	Description          string     `json:"description,omitempty"`
+	NetworkingThroughput int        `json:"networking_throughput,omitempty"`
+	GPUInfo              *GPUInfo   `json:"gpu_info,omitempty"`
+	DiskInfo             []DiskInfo `json:"disk_info,omitempty"`
 }
 
 // DiskInfo containing information about the disks available to Droplets created
