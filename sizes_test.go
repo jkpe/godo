@@ -55,16 +55,17 @@ func TestSizes_List(t *testing.T) {
 			},
 		},
 		{
-			Slug:         "gpu-h100x8-640gb-200",
-			Memory:       1966080,
-			Vcpus:        160,
-			Disk:         200,
-			PriceMonthly: 35414.4,
-			PriceHourly:  52.7,
-			Regions:      []string{"tor1"},
-			Available:    true,
-			Transfer:     60,
-			Description:  "H100 GPU - 8X (small disk)",
+			Slug:                 "gpu-h100x8-640gb-200",
+			Memory:               1966080,
+			Vcpus:                160,
+			Disk:                 200,
+			PriceMonthly:         35414.4,
+			PriceHourly:          52.7,
+			Regions:              []string{"tor1"},
+			Available:            true,
+			Transfer:             60,
+			Description:          "H100 GPU - 8X (small disk)",
+			NetworkingThroughput: 10000,
 			GPUInfo: &GPUInfo{
 				Count: 8,
 				VRAM: &VRAM{
@@ -255,20 +256,21 @@ func TestSizes_RetrievePageByNumber(t *testing.T) {
 
 func TestSize_String(t *testing.T) {
 	size := &Size{
-		Slug:         "slize",
-		Memory:       123,
-		Vcpus:        456,
-		Disk:         789,
-		PriceMonthly: 123,
-		PriceHourly:  456,
-		Regions:      []string{"1", "2"},
-		Available:    true,
-		Transfer:     789,
-		Description:  "Basic",
+		Slug:                 "slize",
+		Memory:               123,
+		Vcpus:                456,
+		Disk:                 789,
+		PriceMonthly:         123,
+		PriceHourly:          456,
+		Regions:              []string{"1", "2"},
+		Available:            true,
+		Transfer:             789,
+		Description:          "Basic",
+		NetworkingThroughput: 1000,
 	}
 
 	stringified := size.String()
-	expected := `godo.Size{Slug:"slize", Memory:123, Vcpus:456, Disk:789, PriceMonthly:123, PriceHourly:456, Regions:["1" "2"], Available:true, Transfer:789, Description:"Basic"}`
+	expected := `godo.Size{Slug:"slize", Memory:123, Vcpus:456, Disk:789, PriceMonthly:123, PriceHourly:456, Regions:["1" "2"], Available:true, Transfer:789, Description:"Basic", NetworkingThroughput:1000}`
 	if expected != stringified {
 		t.Errorf("Size.String returned %+v, expected %+v", stringified, expected)
 	}
